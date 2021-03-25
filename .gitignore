@@ -45,6 +45,10 @@ typings/
 # Optional eslint cache
 .eslintcache
 
+#Eslint options
+.eslintrc.js
+tsconfig.json
+
 # Optional REPL history
 .node_repl_history
 
