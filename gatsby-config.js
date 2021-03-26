@@ -1,5 +1,6 @@
 module.exports = {
   siteMetadata: {
+    pathPrefix: "/huerto-jeinimeni",
     title: `Huerto Jeinimeni`,
     description: `Somos un huerto Biointensivo, orgánico y sustentable ubicado en Chile Chico, Patagonia Chilena.`,
     author: `@eyalll`,
