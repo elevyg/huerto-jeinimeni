@@ -15,7 +15,7 @@ const ColumnContainer: React.FC<Props> = ({ children, style, id, section }) => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          width: section ? "100vw" : style?.width,
+          width: "100vw",
           paddingTop: section ? spacing.xlarge : style?.paddingTop,
           paddingBottom: section ? spacing.xlarge : style?.paddingBottom,
         },

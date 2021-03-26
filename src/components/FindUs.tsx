@@ -10,7 +10,7 @@ interface Props {}
 const FindUs = (props: Props) => {
   return (
     <ColumnContainer section id="find-us" style={{ paddingBottom: 0 }}>
-      <h1 css={{ alignSelf: "center" }}>Donde encontrarnos</h1>
+      <h1 css={styles.title}>Donde encontrarnos</h1>
       <div css={styles.container}>
         <div css={{ ...styles.innerContainer, ...styles.paragraphContainer }}>
           <p>

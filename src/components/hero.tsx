@@ -12,7 +12,7 @@ const Hero = (props: Props) => {
       src="../images/lechugas.jpg"
       style={{
         width: "100vw",
-        height: "80vh",
+        height: "90vh",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",

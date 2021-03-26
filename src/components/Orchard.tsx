@@ -1,6 +1,9 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from "@emotion/react";
 import { StaticImage } from "gatsby-plugin-image";
-import React from "react";
-import { spacing, theme } from "../../utils";
+import { mq, spacing, theme } from "../../utils";
+import { createStyles } from "../types/emotion-styles";
 import ColumnContainer from "./layout/ColumnContainer";
 
 interface Props {}
@@ -15,52 +18,46 @@ const Orchard = (props: Props) => {
       }}
     >
       <h1>Nuestra Huerta</h1>
-      <div
-        style={{
-          display: "flex",
-          flex: "1",
-          justifyContent: "space-evenly",
-        }}
-      >
+      <div css={styles.itemsContainer}>
         <div style={styles.itemContainer}>
           <StaticImage
             src="../images/carrots.jpg"
             alt="carrots"
-            style={styles.roundImage}
+            css={styles.roundImage}
             width={300}
           />
-          <h2 style={styles.itemTitle}>Orgánica y Biointensiva</h2>
-          <p style={styles.itemText}>
+          <h2 css={styles.itemTitle}>Orgánica y Biointensiva</h2>
+          <p css={styles.itemText}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid
             autem consectetur ratione, praesentium molestiae dolores fugiat
             perferendis aspernatur amet iusto a minima! Explicabo aspernatur
             dolorem fuga non ad, voluptas dolore!
           </p>
         </div>
-        <div style={styles.itemContainer}>
+        <div css={styles.itemContainer}>
           <StaticImage
             src="../images/worker.jpg"
             alt="carrots"
-            style={styles.roundImage}
+            css={styles.roundImage}
             width={300}
           />
-          <h2 style={styles.itemTitle}>Local y Colaborativa</h2>
-          <p style={styles.itemText}>
+          <h2 css={styles.itemTitle}>Local y Colaborativa</h2>
+          <p css={styles.itemText}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid
             autem consectetur ratione, praesentium molestiae dolores fugiat
             perferendis aspernatur amet iusto a minima! Explicabo aspernatur
             dolorem fuga non ad, voluptas dolore!
           </p>
         </div>
-        <div style={styles.itemContainer}>
+        <div css={styles.itemContainer}>
           <StaticImage
             src="../images/tools.jpg"
             alt="carrots"
-            style={styles.roundImage}
+            css={styles.roundImage}
             width={300}
           />
-          <h2 style={styles.itemTitle}>Innovadora y Sustentable</h2>
-          <p style={styles.itemText}>
+          <h2 css={styles.itemTitle}>Innovadora y Sustentable</h2>
+          <p css={styles.itemText}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid
             autem consectetur ratione, praesentium molestiae dolores fugiat
             perferendis aspernatur amet iusto a minima! Explicabo aspernatur
@@ -74,12 +71,21 @@ const Orchard = (props: Props) => {
 
 export default Orchard;
 
-const styles: Record<string, React.CSSProperties> = {
+const styles = createStyles({
+  itemsContainer: {
+    display: "flex",
+    flex: "1",
+    justifyContent: "space-evenly",
+    flexDirection: "column",
+    [mq("medium")]: {
+      flexDirection: "row",
+    },
+  },
   itemContainer: {
     display: "flex",
     alignItems: "center",
-    flexDirection: "column",
     justifyContent: "center",
+    flexDirection: "column",
   },
   roundImage: { borderRadius: 1000, overflow: "hidden" },
   itemTitle: {
@@ -87,6 +93,14 @@ const styles: Record<string, React.CSSProperties> = {
     color: theme.palette.primary.dark,
     fontSize: 50,
     marginTop: spacing.medium,
+    textAlign: "center",
   },
-  itemText: { marginLeft: spacing.medium, marginRight: spacing.medium },
-};
+  itemText: {
+    display: "none",
+    [mq("medium")]: {
+      display: "block",
+      marginLeft: spacing.medium,
+      marginRight: spacing.medium,
+    },
+  },
+});

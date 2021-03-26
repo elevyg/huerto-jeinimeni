@@ -1,23 +1,26 @@
-import * as React from "react";
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from "@emotion/react";
 import { Link } from "gatsby";
-import { theme } from "../../utils";
+import { mq, theme } from "../../utils";
 import { StaticImage } from "gatsby-plugin-image";
 import NavLink from "./NavLink";
+import { createStyles } from "../types/emotion-styles";
 
 const Header = () => (
-  <header style={styles.container}>
-    <div style={styles.navLinkContainerLeft}>
+  <header css={styles.container}>
+    <div css={styles.navLinkContainerLeft}>
       <NavLink to="#about" title="Nosotros" />
       <NavLink to="#orchard" title="Huerta" />
     </div>
-    <div style={styles.navLinkContainerRight}>
+    <div css={styles.navLinkContainerRight}>
       <NavLink to="#find-us" title="Ubicación" />
       <NavLink to="#volunteers" title="Voluntariados" />
     </div>
     <div style={styles.logoContainer}>
       <Link
         to="/"
-        style={{
+        css={{
           textDecoration: `none`,
         }}
       >
@@ -34,10 +37,10 @@ const Header = () => (
 
 export default Header;
 
-const styles: Record<string, React.CSSProperties> = {
+const styles = createStyles({
   container: {
     backgroundColor: theme.palette.common.white,
-    height: "5rem",
+    height: "10vh",
     display: "flex",
     flex: 1,
     justifyContent: "center",
@@ -45,16 +48,22 @@ const styles: Record<string, React.CSSProperties> = {
     zIndex: 20,
   },
   navLinkContainerLeft: {
-    display: "flex",
-    flex: 1,
-    marginRight: 125,
-    justifyContent: "flex-end",
+    display: "none",
+    [mq("medium")]: {
+      display: "flex",
+      flex: 1,
+      marginRight: 125,
+      justifyContent: "flex-end",
+    },
   },
   navLinkContainerRight: {
-    display: "flex",
-    flex: 1,
-    marginLeft: 125,
-    justifyContent: "flex-start",
+    display: "none",
+    [mq("medium")]: {
+      display: "flex",
+      flex: 1,
+      marginLeft: 125,
+      justifyContent: "flex-start",
+    },
   },
   logoContainer: {
     position: "absolute",
@@ -62,4 +71,4 @@ const styles: Record<string, React.CSSProperties> = {
     zIndex: 20,
     justifySelf: "center",
   },
-};
+});

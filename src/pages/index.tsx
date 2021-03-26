@@ -14,7 +14,7 @@ import Orchard from "../components/Orchard";
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <ColumnContainer style={{ scrollBehavior: "smooth" }}>
+    <ColumnContainer>
       <Hero />
       <About />
       <Orchard />
