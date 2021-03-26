@@ -9,7 +9,15 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-emotion`,
-    'gatsby-plugin-root-import',
+    `gatsby-plugin-root-import`,
+    `gatsby-plugin-smoothscroll`,
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        duration: 1000
+      }
+      
+    },
     {
       resolve: "gatsby-plugin-eslint",
       options: {
@@ -48,4 +56,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
